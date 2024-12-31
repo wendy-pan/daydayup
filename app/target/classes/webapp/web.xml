@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee  http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+
+    <listener>
+        <listener-class>com.hzk.webserver.listener.HzkServletContextListener</listener-class>
+    </listener>
+
+
+    <filter>
+        <filter-name>HzkFilter1</filter-name>
+        <filter-class>com.hzk.webserver.filter.HzkFilter1</filter-class>
+        <filter-order>1</filter-order>
+    </filter>
+    <filter-mapping>
+        <filter-name>HzkFilter1</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>HzkFilter2</filter-name>
+        <filter-class>com.hzk.webserver.filter.HzkFilter2</filter-class>
+        <filter-order>2</filter-order>
+    </filter>
+    <filter-mapping>
+        <filter-name>HzkFilter2</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.hzk.webserver.filter.LoginFilter</filter-class>
+        <filter-order>5000</filter-order>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.hzk.webserver.servlet.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PropertyServlet</servlet-name>
+        <servlet-class>com.hzk.webserver.servlet.PropertyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PropertyServlet</servlet-name>
+        <url-pattern>/property.do</url-pattern>
+    </servlet-mapping>
+
+</web-app>
